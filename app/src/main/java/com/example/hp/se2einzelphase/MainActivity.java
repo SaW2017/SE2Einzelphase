@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCalc.setOnClickListener(this);
     }
 
+    //in dieser Methode wird festgelegt was passiert wenn man auf den "Dividiere-Button" drückt
     @Override
     public void onClick(View v) {
 
@@ -79,9 +80,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            edOutput.setText("Division leider nicht möglich!");
        }
     }
+    //eigene Methode für Fehlermeldungen per Dialogfenster
     public void showError(){
 
-        //Fehlerdialoge erstellen
+        //Fehlerdialog erstellen
         AlertDialog.Builder error = new AlertDialog.Builder(this);
         error.setTitle("Fehler!");
         error.setMessage("Durch 0 dividieren ist nicht möglich!");
