@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.support.annotation.FloatRange;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,30 +47,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
        try {
 
-           //Bedingung dass Divisor !=0 ist
-           if (!divisor.equals("0")) {
+           //prüft ob Wert bei Divisor eingegeben wurde
+           if(TextUtils.isEmpty(divisor)) {
+               edOutput.setText("Bitte erst Wert für Divisor eingeben!");
 
-               //String in Double umwandeln
-               double dlDivisor = Double.parseDouble(divisor);
-               double dlDividend = Double.parseDouble(dividend);
+           //prüft dasselbe bei Dividend
+           }else if(TextUtils.isEmpty(dividend)){
+               edOutput.setText("Bitte erst Wert für Dividend eingeben!");
 
-               //Berechung durchführen und in double ergebnis speichern
-               double ergebnis = (dlDividend/dlDivisor) ;
+           }else {
+               //Bedingung dass Divisor !=0 ist
+               if (!divisor.equals("0")) {
 
-               //Ergebnis in Feld Output speichern und vorher in Stringvariable konvertieren
-               edOutput.setText(Double.toString(ergebnis));
+                   //String in Double umwandeln
+                   double dlDivisor = Double.parseDouble(divisor);
+                   double dlDividend = Double.parseDouble(dividend);
 
-               //Fehlermeldung bei Division durch 0
-           } else {
-               showError(1);
-           }
+                   //Berechung durchführen und in double ergebnis speichern
+                   double ergebnis = (dlDividend / dlDivisor);
 
-           //Zur Sicherheit ein try,catch Block um das Programm vorm Abstürzen zu bewahren
+                   //Ergebnis in Feld Output speichern und vorher in Stringvariable konvertieren
+                   edOutput.setText(Double.toString(ergebnis));
+
+                   //Fehlermeldung bei Division durch 0
+               } else {
+                   showError();
+               }
+
+           } //Zur Sicherheit ein try,catch Block um das Programm vorm Abstürzen zu bewahren
        }catch(Exception e){
            edOutput.setText("Division leider nicht möglich!");
        }
     }
-    public void showError(int fehler){
+    public void showError(){
 
         //Fehlerdialoge erstellen
         AlertDialog.Builder error = new AlertDialog.Builder(this);
@@ -77,18 +87,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         error.setMessage("Durch 0 dividieren ist nicht möglich!");
         error.setCancelable(true);
 
+        //Fehlerdialog anzeigen
+        AlertDialog errorDialog = error.create();
+        errorDialog.show();
+
+
+        /*
+        Möglichkeit für weitere Fehlermeldungen
         AlertDialog.Builder error2 = new AlertDialog.Builder(this);
         error2.setTitle("Fehler!");
         error2.setMessage("Bitte zuerst Zahlen eingeben!");
-        error2.setCancelable(true);
+        error2.setCancelable(true);*/
 
-        //Betreffenden Fehlerdialog anzeigen
-        if (fehler == 1){
-        AlertDialog errorDialog = error.create();
-        errorDialog.show();
-        }else{
-            AlertDialog errorDialog = error2.create();
-            errorDialog.show();
-        }
+
     }
 }
