@@ -45,33 +45,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
        try {
+
            //Bedingung dass Divisor !=0 ist
            if (!divisor.equals("0")) {
 
-               //String in Float umwandeln
-               double flDivisor = Double.parseDouble(divisor);
-               double flDividend = Double.parseDouble(dividend);
+               //String in Double umwandeln
+               double dlDivisor = Double.parseDouble(divisor);
+               double dlDividend = Double.parseDouble(dividend);
 
-               //Berechung durchführen und in float ergebnis speichern
-               double ergebnis = (flDividend/flDivisor) ;
+               //Berechung durchführen und in double ergebnis speichern
+               double ergebnis = (dlDividend/dlDivisor) ;
 
                //Ergebnis in Feld Output speichern und vorher in Stringvariable konvertieren
                edOutput.setText(Double.toString(ergebnis));
 
                //Fehlermeldung bei Division durch 0
            } else {
-               //Fehlerdialog erstellen
-               AlertDialog.Builder error = new AlertDialog.Builder(this);
-               error.setTitle("Fehler!");
-               error.setMessage("Durch 0 dividieren ist nicht möglich!");
-               error.setCancelable(true);
-
-               //Fehlerdialog anzeigen
-               AlertDialog errorDialog = error.create();
-               errorDialog.show();
+               showError(1);
            }
+
+           //Zur Sicherheit ein try,catch Block um das Programm vorm Abstürzen zu bewahren
        }catch(Exception e){
-           edOutput.setText("Division nicht möglich!");
+           edOutput.setText("Division leider nicht möglich!");
        }
+    }
+    public void showError(int fehler){
+
+        //Fehlerdialoge erstellen
+        AlertDialog.Builder error = new AlertDialog.Builder(this);
+        error.setTitle("Fehler!");
+        error.setMessage("Durch 0 dividieren ist nicht möglich!");
+        error.setCancelable(true);
+
+        AlertDialog.Builder error2 = new AlertDialog.Builder(this);
+        error2.setTitle("Fehler!");
+        error2.setMessage("Bitte zuerst Zahlen eingeben!");
+        error2.setCancelable(true);
+
+        //Betreffenden Fehlerdialog anzeigen
+        if (fehler == 1){
+        AlertDialog errorDialog = error.create();
+        errorDialog.show();
+        }else{
+            AlertDialog errorDialog = error2.create();
+            errorDialog.show();
+        }
     }
 }
