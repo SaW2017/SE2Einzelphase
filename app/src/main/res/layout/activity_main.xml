@@ -20,7 +20,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintVertical_bias="0.137" />
+        app:layout_constraintVertical_bias="0.109" />
 
     <TextView
         android:id="@+id/textTitle"
@@ -35,7 +35,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/edDividend" />
+        app:layout_constraintBottom_toTopOf="@+id/edDividend"
+        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
         android:id="@+id/textDividend"
@@ -51,8 +52,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.093"
-        app:layout_constraintVertical_bias="0.542" />
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintVertical_bias="0.52" />
 
     <TextView
         android:id="@+id/textDivisor"
@@ -68,44 +69,42 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
-        app:layout_constraintVertical_bias="0.392" />
+        app:layout_constraintHorizontal_bias="0.031"
+        app:layout_constraintVertical_bias="0.35" />
 
     <EditText
         android:id="@+id/edDividend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="174dp"
+        android:layout_height="47dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
         android:textColor="#000059"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268" />
+        app:layout_constraintVertical_bias="0.235" />
 
     <EditText
         android:id="@+id/edDivisor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="174dp"
+        android:layout_height="47dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
         android:textColor="#000059"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edDividend"
-        app:layout_constraintVertical_bias="0.171" />
+        app:layout_constraintVertical_bias="0.072" />
 
     <EditText
         android:id="@+id/edOutput"
@@ -121,6 +120,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCalc" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCalc"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintVertical_bias="0.385" />
 
 </android.support.constraint.ConstraintLayout>

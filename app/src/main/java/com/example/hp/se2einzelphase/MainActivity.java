@@ -43,20 +43,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String divisor = edDivisor.getText().toString();
         String dividend = edDividend.getText().toString();
 
-        //if (v.getId() == R.id.btnCalc)
+
        try {
            //Bedingung dass Divisor !=0 ist
            if (!divisor.equals("0")) {
 
                //String in Float umwandeln
-               float flDivisor = Float.parseFloat(divisor);
-               float flDividend = Float.parseFloat(dividend);
+               double flDivisor = Double.parseDouble(divisor);
+               double flDividend = Double.parseDouble(dividend);
 
                //Berechung durchführen und in float ergebnis speichern
-               float ergebnis = (flDividend/flDivisor) ;
+               double ergebnis = (flDividend/flDivisor) ;
 
                //Ergebnis in Feld Output speichern und vorher in Stringvariable konvertieren
-               edOutput.setText(Float.toString(ergebnis));
+               edOutput.setText(Double.toString(ergebnis));
 
                //Fehlermeldung bei Division durch 0
            } else {
